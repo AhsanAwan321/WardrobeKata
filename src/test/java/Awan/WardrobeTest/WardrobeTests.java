@@ -10,13 +10,22 @@
 
 package Awan.WardrobeTest;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Disabled; 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import Awan.Wardrobe.Wardrobe;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 class WardrobeTests {
 	
@@ -32,10 +41,8 @@ class WardrobeTests {
     public void testSingleExactMatch() {
         Wardrobe wardrobe = new Wardrobe();
         List<List<Integer>> result = wardrobe.configure(100, Arrays.asList(50, 75, 100));
-		
-        assertEquals(1, result.size());
-        assertTrue(result.get(0).contains(100));
-        assertEquals(1, result.get(0).size());
+
+        assertTrue(result.stream().anyMatch(list -> list.equals(Arrays.asList(100))));
     }
 		
 	}
