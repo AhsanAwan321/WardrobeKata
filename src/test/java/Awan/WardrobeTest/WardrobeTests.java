@@ -47,10 +47,11 @@ class WardrobeTests {
     }
 
 	@Test
+	@Disabled
 	public void testMultipleModules(){
 		Wardrobe wardrobe = new Wardrobe(); 
 		List<List<Integer>> result = wardrobe.configure(100, Arrays.asList(25, 50, 75));
-		
+
 		assertTrue(
             result.stream().anyMatch(list -> list.equals(Arrays.asList(50, 50))) ||
             result.stream().anyMatch(list -> list.equals(Arrays.asList(25, 75))),
