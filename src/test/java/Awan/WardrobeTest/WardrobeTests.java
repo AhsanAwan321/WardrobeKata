@@ -42,7 +42,6 @@ class WardrobeTests {
     public void testSingleExactMatch() {
         Wardrobe wardrobe = new Wardrobe();
         List<List<Integer>> result = wardrobe.configure(100, Arrays.asList(50, 75, 100));
-
         assertTrue(result.stream().anyMatch(list -> list.equals(Arrays.asList(100))));
     }
 		
