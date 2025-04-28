@@ -27,6 +27,16 @@ class WardrobeTests {
         List<List<Integer>> result = wardrobe.configure(100, Collections.emptyList());
         assertTrue(result.isEmpty());
 	}
+
+	@Test
+    public void testSingleExactMatch() {
+        Wardrobe wardrobe = new Wardrobe();
+        List<List<Integer>> result = wardrobe.configure(100, Arrays.asList(50, 75, 100));
+		
+        assertEquals(1, result.size());
+        assertTrue(result.get(0).contains(100));
+        assertEquals(1, result.get(0).size());
+    }
 		
 	}
 
