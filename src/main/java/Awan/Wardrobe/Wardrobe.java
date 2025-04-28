@@ -33,7 +33,7 @@ public class Wardrobe {
         for (Integer module : modules) {
             current.add(module);
             findCombinations(width, modules, current, results);
-            current.remove(current.size() - 1); // backtrack
+            current.remove(current.size() - 1);
         }
     }
 }
