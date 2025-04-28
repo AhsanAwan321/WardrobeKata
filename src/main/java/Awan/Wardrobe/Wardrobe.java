@@ -16,32 +16,27 @@ import java.util.Collections;
 
 public class Wardrobe {
 	public List<List<Integer>> configure(int width, List<Integer> modules) {
-        if (width <= 0) {
-            throw new IllegalArgumentException("Width must be positive");
-        }
-        if (modules == null || modules.isEmpty()) {
-            return new ArrayList<>();
-        }
-        
-        List<Integer> sortedModules = new ArrayList<>(modules);
-        Collections.sort(sortedModules, Collections.reverseOrder());  // BIGGER modules first
-    
-        List<List<Integer>> results = new ArrayList<>();
-        findCombinations(width, sortedModules, new ArrayList<>(), results);
-        return new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
+        findCombinations(width, modules, new ArrayList<>(), result);
+        return result;
     }
 
-    private void findCombinations(int remainingWidth, List<Integer> modules, List<Integer> currentCombination, List<List<Integer>> results) {
-        if (remainingWidth == 0) {
-            results.add(new ArrayList<>(currentCombination));
+    private void findCombinations(int width, List<Integer> modules, List<Integer> current, List<List<Integer>> results) {
+        int sum = 0;
+        for (int value : current) {
+            sum += value;
+        }
+        if (sum == width) {
+            results.add(new ArrayList<>(current));
             return;
         }
-        for (int module : modules) {
-            if (module <= remainingWidth) {
-                currentCombination.add(module);
-                findCombinations(remainingWidth - module, modules, currentCombination, results);
-                currentCombination.remove(currentCombination.size() - 1);
-            }
+        if (sum > width) {
+            return;
+        }
+        for (Integer module : modules) {
+            current.add(module);
+            findCombinations(width, modules, current, results);
+            current.remove(current.size() - 1); // backtrack
         }
     }
 }
