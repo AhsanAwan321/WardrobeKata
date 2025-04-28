@@ -18,7 +18,13 @@ public class Wardrobe {
         if (modules == null || modules.isEmpty()) {
             return new ArrayList<>();
         }
+        List<List<Integer>> results = new ArrayList<>();
+        findCombinations(width, modules, new ArrayList<>(), results);
         return new ArrayList<>();
+    }
+
+    private void findCombinations(int remainingWidth, List<Integer> modules, List<Integer> currentCombination, List<List<Integer>> results) {
+        
     }
 }
 
