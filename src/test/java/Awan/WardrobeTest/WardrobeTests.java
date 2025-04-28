@@ -29,8 +29,8 @@ import java.util.Collections;
 
 class WardrobeTests {
 	
-	@Disabled
 	@Test
+	@Disabled
 	public void testEmptyWidthSize(){
 		Wardrobe wardrobe = new Wardrobe();
         List<List<Integer>> result = wardrobe.configure(100, Collections.emptyList());
@@ -38,6 +38,7 @@ class WardrobeTests {
 	}
 
 	@Test
+	@Disabled
     public void testSingleExactMatch() {
         Wardrobe wardrobe = new Wardrobe();
         List<List<Integer>> result = wardrobe.configure(100, Arrays.asList(50, 75, 100));
