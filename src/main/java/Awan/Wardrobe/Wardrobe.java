@@ -14,7 +14,12 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Wardrobe {
-	
+	public List<List<Integer>> configure(int width, List<Integer> modules) {
+        if (modules == null || modules.isEmpty()) {
+            return new ArrayList<>();
+        }
+        return new ArrayList<>();
+    }
 }
 
 
