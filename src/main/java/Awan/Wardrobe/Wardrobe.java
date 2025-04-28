@@ -28,7 +28,7 @@ public class Wardrobe {
     
         List<List<Integer>> results = new ArrayList<>();
         findCombinations(width, sortedModules, new ArrayList<>(), results);
-        return results;
+        return new ArrayList<>();
     }
 
     private void findCombinations(int remainingWidth, List<Integer> modules, List<Integer> currentCombination, List<List<Integer>> results) {
