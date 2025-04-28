@@ -22,10 +22,7 @@ public class Wardrobe {
     }
 
     private void findCombinations(int width, List<Integer> modules, List<Integer> current, List<List<Integer>> results) {
-        int sum = 0;
-        for (int value : current) {
-            sum += value;
-        }
+        int sum = current.stream().mapToInt(Integer::intValue).sum();
         if (sum == width) {
             results.add(new ArrayList<>(current));
             return;
