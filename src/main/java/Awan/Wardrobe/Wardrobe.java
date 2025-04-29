@@ -16,6 +16,10 @@ import java.util.Collections;
 
 public class Wardrobe {
 	public List<List<Integer>> configure(int width, List<Integer> modules) {
+        if (width < 0){
+            throw new IllegalArgumentException("Width cannot be negative");
+        }
+
         List<List<Integer>> result = new ArrayList<>();
         findCombinations(width, modules, new ArrayList<>(), result);
         return result;
