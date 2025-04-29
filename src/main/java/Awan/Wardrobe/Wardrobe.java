@@ -25,19 +25,18 @@ public class Wardrobe {
         return result;
     }
 
-    private void findCombinations(int width, List<Integer> modules, List<Integer> current, List<List<Integer>> results) {
-        int sum = current.stream().mapToInt(Integer::intValue).sum();
-        if (sum == width) {
+    private void findCombinations(int remaining, List<Integer> modules, List<Integer> current, List<List<Integer>> results) {
+        if (remaining == 0) {
             results.add(new ArrayList<>(current));
             return;
         }
-        if (sum > width) {
-            return;
-        }
         for (Integer module : modules) {
-            current.add(module);
-            findCombinations(width, modules, current, results);
-            current.remove(current.size() - 1);
+            if (module >= remaining)
+            {
+                current.add(module);
+                findCombinations(remaining, modules, current, results);
+                current.remove(current.size() - 1);
+            }
         }
     }
 }
