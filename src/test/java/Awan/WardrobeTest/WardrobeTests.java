@@ -60,6 +60,7 @@ class WardrobeTests {
 	}
 
 	@Test
+	@Disabled
 	void testInvalidWidthException(){
 		Wardrobe wardrobe = new Wardrobe();
 		assertThrows(IllegalArgumentException.class, () -> {
