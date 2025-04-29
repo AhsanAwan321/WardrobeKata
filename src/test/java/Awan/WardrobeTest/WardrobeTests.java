@@ -58,6 +58,14 @@ class WardrobeTests {
             "Expected a combination of [50, 50] or [25, 75]"
         );
 	}
+
+	@Test
+	void testInvalidWidthException(){
+		Wardrobe wardrobe = new Wardrobe();
+		assertThrows(IllegalArgumentException.class, () -> {
+			wardrobe.configure(-100, List.of(50, 75, 100));
+		});
+	}
 		
 	}
 
